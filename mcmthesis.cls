@@ -1,28 +1,3 @@
-%%
-%% This is file `mcmthesis.cls',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% mcmthesis.dtx  (with options: `class')
-%% 
-%% -----------------------------------
-%% This is a generated file.
-%% 
-%% Copyright (C) 2010 -- 2015 by latexstudio
-%%       2014 -- 2019 by Liam Huang
-%%       2019 -- present by latexstudio.net
-%% 
-%% This work may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
-%% 
-%% The Current Maintainer of this work is latexstudio.net.
-%% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{mcmthesis}
   [2024/01/22 v6.3.3 The Thesis Template Designed For MCM/ICM]
@@ -135,20 +110,6 @@
 \renewcommand{\tablename}{Table}
 \graphicspath{{./}{./img/}{./fig/}{./image/}{./figure/}{./picture/}
             {./imgs/}{./figs/}{./images/}{./figures/}{./pictures/}}
-% \def\maketitle{%
-%   %\let\saved@thepage\thepage
-%   %\let\thepage\relax
-%   \ifMCM@opt@sheet
-%   \makesheet
-%   \fi
-%   \newpage
-%   \setcounter{page}{1}
-%   \pagestyle{fancy}
-%   \ifMCM@opt@titlepage
-%     \MCM@maketitle
-%   \fi
-%   \newpage
-% }
 \def\maketitle{%
   \setcounter{page}{1}   % 移到最前面
   \pagestyle{fancy}      % 先启用页眉页脚
@@ -400,15 +361,3 @@
       \endlist}
 \def\AImatter{\label{LastPage}\clearpage\pagestyle{aimain}}
 \endinput
-%% 
-%% This work consists of these files mcmthesis.dtx,
-%%                                   figures/ and
-%%                                   code/,
-%% and the derived files             mcmthesis.cls,
-%%                                   mcmthesis-demo.tex,
-%%                                   README,
-%%                                   LICENSE,
-%%                                   mcmthesis.pdf and
-%%                                   mcmthesis-demo.pdf.
-%%
-%% End of file `mcmthesis.cls'.
