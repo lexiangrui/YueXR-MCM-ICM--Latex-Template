@@ -1,0 +1,99 @@
+%% !Mode:: "TeX:UTF-8"
+\documentclass{mcmthesis}
+ %\documentclass[CTeX = true]{mcmthesis}  % 当使用 CTeX 套装时请注释上一行使用该行的设置
+\mcmsetup{tstyle = \color{red}\bfseries,  % 修改题号，队号的颜色和加粗显示，黑色可以修改为 black
+          tcn = 0000, problem = A,     % 修改队号，参赛题号
+          sheet = true, titleinsheet = true, keywordsinsheet = true,
+          titlepage = false, abstract = true}
+
+  %四款字体可以选择
+  %\usepackage{times}
+  %\usepackage{newtxtext}
+\usepackage{palatino}
+%\usepackage{txfonts}
+
+\usepackage{caption}
+\captionsetup[figure]{font=small}   % 将图标题字号设为small
+\captionsetup[table]{font=small}    % 将表标题字号设为small
+\captionsetup[table]{skip=2pt}      % 将表格标题与内容间距设置为2pt
+\captionsetup[table]{position=top}  % 表格标题在表格上方
+
+\usepackage{indentfirst}  % 首行缩进，注释掉，首行就不再缩进
+\usepackage{esint}        % 积分号
+\usepackage{subcaption}   % 并排图片
+\usepackage{floatrow}     % 并排图片
+
+\usepackage{xcolor}       % 颜色支持
+\usepackage{tabularray}   % 增强表格功能
+
+\usepackage[style=numeric,backend=biber]{biblatex}  % APA风格: style=apa
+\ExecuteBibliographyOptions{sorting=none}           % 按引用顺序
+\addbibresource{references.bib}                     % bib参考文献可用kimi生成
+
+% 修复fancyhdr警告
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-1.6pt}  % 可选：保持总版心不变
+
+\setcounter{tocdepth}{2}  % 设置目录到二级标题, 将目录控制在1页
+                          % 若可接受目录2页, 注释掉该句, 将到三级标题
+
+\title{Your Paper Title}%标题写这里
+
+
+\date{\today}
+
+\begin{document}
+
+\begin{abstract}
+\par Briefly summarize the problem, your approach, and key findings.
+Keep it concise and replace this text with your own summary.
+
+\begin{keywords}
+Keyword 1, Keyword 2, Keyword 3
+\end{keywords}
+\end{abstract}
+\maketitle
+
+%% Generate the Table of Contents, if it's needed.
+\tableofcontents
+
+\newpage
+
+\input{chapter/Introdcution.tex}
+\input{chapter/Preparation of the Models.tex}
+\input{chapter/Task1.tex}
+\input{chapter/Sensitivity and Robustness Analysis.tex}
+\input{chapter/Model Evaluation.tex}
+\input{chapter/Conclusion.tex}
+
+\nocite{*}  % 引用所有参考文献条目
+\printbibliography[heading=bibintoc]
+
+\begin{appendices}
+
+\section{First Appendix}
+
+\textbf{\textcolor[rgb]{0.98,0.00,0.00}{Input Python source:}}
+\begin{lstlisting}[language=python]
+def moving_average(values, window):
+    if window <= 0:
+        raise ValueError("window must be positive")
+    averages = []
+    for i in range(len(values) - window + 1):
+        chunk = values[i:i + window]
+        averages.append(sum(chunk) / window)
+    return averages
+
+data = [2, 4, 6, 8, 10, 12]
+print(moving_average(data, 3))
+\end{lstlisting}
+
+\textbf{\textcolor[rgb]{0.98,0.00,0.00}{Input Matlab source:}}
+\lstinputlisting[language=Matlab]{./code/matlab1.m}
+
+\end{appendices}
+\label{LastPage}
+\def\AImatter{\pagestyle{empty}}
+\include{chapter/AI.tex}
+
+\end{document}
